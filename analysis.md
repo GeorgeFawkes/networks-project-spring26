@@ -4,7 +4,7 @@
 
 London had the highest inefficiency ratio at 2.42, followed by Frankfurt at 2.08. This was surprising because looking at the submarine cable map, there's a massive bundle of cables crossing the North Atlantic between the US East Coast and Western Europe. It's easily the densest cluster on the entire map, so the routing between Boston and London should be very direct.
 
-The reason the ratio is so high is that London's theoretical minimum is only 52.6 ms, which is really small. So the fixed overhead from TCP handshakes, HTTP request/response processing, and routing through intermediate hops ends up being a big chunk of the total measured RTT. For farther cities like Tokyo or Mumbai, the theoretical minimum is already over 100 ms, so that same overhead barely affects the ratio.
+The reason the ratio is so high is that London's theoretical minimum is only 52.6 ms, which is really small. So the fixed overhead from TCP handshakes, HTTP request/response processing, and routing through intermediate hops ends up being a big chunk of the total measured RTT. For farther cities like Tokyo or Mumbai, the theoretical minimum is already over 100 ms, so that same overhead barely affects the ratio. However, it is worth noting that since we're using HTTP requests rather than ICMP ping, the measured RTTs include TCP and HTTP overhead on top of pure network delay, which contributes to the higher ratios for nearby cities.
 
 ## 2. Closest to Theoretical Minimum
 
